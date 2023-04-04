@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GATE-PASS</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GATE-PASS</title>
+
+</head>
+<body>
+        <div class="main">
+            <div class="register">
+                <h2 >GATE-PASS</h2>
+                <form id="register" method="POST" action="/verify" >
+                    
+                    <label>YOUR NAME:</label>
+                    <br>
+                    <br>
+                        <input type="text" id="fname" placeholder="Enter Your First name" >
+                    <br>
+                        <input type="text" id="lname" placeholder="Enter Your Last name" >
+                    <br>
+                    <br>
+                    <label>Your Age:</label>
+                        <input type="number" name="age" id="age" placeholder="How Old Are You" required>
+                    <br>
+                    <br>
+                    <label>Email:</label>    
+                        <input type="email" name="email" id="email" placeholder="Enter your Valid Email" required>
+                    <br><br>
+                    <label>Contact No: </label>    
+                    <input type="number" name="number" id="number" placeholder="Enter your contact number" required>
+                    <br><br>
+                    
+                    <label>Gender: </label> 
+                    <br>
+                    &nbsp;&nbsp;&nbsp;   
+                    <input type="radio" name="gender" id="male" required>
+                    &nbsp;    
+                    <span id="male">Male</span>    
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    <input type="radio" name="gender" id="female" required>
+                    &nbsp; 
+                    <span id="female">Female</span>
+                    <br><br>     
+                    <label>Known Language: </label>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;  
+                    <input type="checkbox" name="lang" id="hindi"> 
+                    &nbsp; 
+                    <span id="hindi">Hindi</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    <input type="checkbox" name="lang" id="eng">
+                    &nbsp;
+                    <span id="eng">English</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    <input type="checkbox" name="lang" id="spanish">
+                    &nbsp;
+                    <span id="spanish">Spanish</span>
+                    <br><br>
+                    <button class="button" type="button" onclick=myalert();><span>generate OTP</span></button>
+                    <br><br>
+                    <button type="submit" class="button">Submit</button>
+                    
+                </form>
+            </div>
+        </div>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
+<script type="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+    function myalert() {
+        otp=otpGenerate();
+        alert("Your OTP is "+ otp +" , please not it down as it will be used later.");
+        localStorage.clear();
+        localStorage.setItem("otp",otp);
+    }
+
+    function otpGenerate(){
+        let x = Math.floor((Math.random() * 1000000) + 1);
+        return x.toString();
+        }
+</script>
+</body>
+</html>
